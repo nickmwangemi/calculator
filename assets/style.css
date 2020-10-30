@@ -41,12 +41,12 @@ h1:hover {
 #calculator {
 	display: grid;
 	background: white;
+	max-width: 350px;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: 30px;
 	grid-auto-rows: minmax(70px, auto);
-	max-width: 400px;
 	margin: 0 auto;
-	border: 1px solid black;
+	border: 1px dotted black;
 }
 
 .button {
@@ -74,13 +74,14 @@ h1:hover {
 #equal {
 	grid-row: 6/8;
 	grid-column: 4/5;
-	background: #f4d1ae;
+	background: black;
+	color: white;
 }
 
 #equal:hover {
-	background: black;
+	background: white;
 	transition: 0.2s ease-in-out;
-	color: white;
+	color: black;
 }
 
 .display {
