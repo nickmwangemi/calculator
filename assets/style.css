@@ -1,0 +1,114 @@
+/* Reset */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	height: auto;
+	font-family: monospace;
+	font-size: 25px;
+	text-align: center;
+	background-image: url('../assets/images/topography.svg'),
+		linear-gradient(110deg, #f93d66, #6d47d9);
+	background-size: 340px, auto;
+	margin: auto;
+	background-attachment: fixed;
+	letter-spacing: -1px;
+}
+
+h1 {
+	font-family: monospace;
+	margin-top: 20px;
+	font-size: 30px;
+}
+h1:hover {
+	transition: 0.2s ease-in-out;
+	color: white;
+}
+
+#container {
+	padding-top: 50px;
+}
+
+#calculator {
+	display: grid;
+	background: white;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: 30px;
+	grid-auto-rows: minmax(70px, auto);
+	max-width: 400px;
+	margin: 0 auto;
+	border: 1px solid black;
+}
+
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.button:hover {
+	background: black;
+	transition: 0.2s ease-in-out;
+	color: white;
+}
+
+.operator,
+.function {
+	background: #bbbbbb;
+}
+
+.number {
+	background: #eee;
+}
+
+#equal {
+	grid-row: 6/8;
+	grid-column: 4/5;
+	background: #f4d1ae;
+}
+
+#equal:hover {
+	background: black;
+	transition: 0.2s ease-in-out;
+	color: white;
+}
+
+.display {
+	grid-column: 1/5;
+	text-align: right;
+	padding: 10px;
+	color: #333;
+	overflow: hidden;
+}
+
+.top-display {
+	grid-column: 1/5;
+	padding: 10px;
+	overflow: hidden;
+	font-size: 20px;
+}
+
+#top-display {
+	text-align: left;
+}
+
+a {
+	text-decoration: inherit;
+	color: inherit;
+	transition: 0.2s ease-in-out;
+	font-size: 25px;
+}
+
+a:hover {
+	color: #fff;
+}
