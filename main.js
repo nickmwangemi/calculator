@@ -7,20 +7,20 @@ let hasSign
 
 // Target UI elements
 // Display
-let working = document.querySelector('#top-display')
-let answer = document.querySelector('#answer-display')
+let working = document.getElementById('#top-display')
+let answer = document.getElementById('#answer-display')
 // Function buttons
-let equal = document.querySelector('#equal-sign')
-let cancel = document.querySelector('#clear')
-let backspace = document.querySelector('#delete')
-let decimal = document.querySelector('#decimal')
-let sign = document.querySelector('#sign')
+let equal = document.getElementById('#equal-sign')
+let cancel = document.getElementById('#clear')
+let backspace = document.getElementById('#delete')
+let decimal = document.getElementById('#decimal')
+let sign = document.getElementById('#sign')
 
 // Operators
-let add = document.querySelector('#add')
-let minus = document.querySelector('#minus')
-let multiply = document.querySelector('#multiply')
-let divide = document.querySelector('#divide')
+let add = document.getElementById('#add')
+let minus = document.getElementById('#minus')
+let multiply = document.getElementById('#multiply')
+let divide = document.getElementById('#divide')
 
 // Display numbers
 let numbers = document.querySelectorAll('#calculator .number')
