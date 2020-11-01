@@ -88,12 +88,12 @@ operators.forEach(function (operator) {
 					ans = operate(firstNumber, secondNumber, operator)
 
 					if (ans > 99999999 || ans < -99999999) {
-						answer.textContent = ans.toExponential(5).toString()
+						answerDisplay.textContent = ans.toExponential(5).toString()
 					} else if (ans.toString().length > 10) {
 						ans = parseFloat(ans).toFixed(10)
-						answer.textContent = ans.toString()
+						answerDisplay.textContent = ans.toString()
 					} else {
-						answer.textContent = ans.toString()
+						answerDisplay.textContent = ans.toString()
 					}
 					firstNumber = ans
 					operator = initialOperator
@@ -112,9 +112,12 @@ operators.forEach(function (operator) {
 					operator = initialOperator
 				}
 			}
-		} else if (topDisplay.textContent === '' && answer.textContent !== '') {
-			firstNumber = parseFloat(answer.textContent)
-			topDisplay.textContent = answer.textContent + initialOperator
+		} else if (
+			topDisplay.textContent === '' &&
+			answerDisplay.textContent !== ''
+		) {
+			firstNumber = parseFloat(answerDisplay.textContent)
+			topDisplay.textContent = answerDisplay.textContent + initialOperator
 			operator = initialOperator
 		}
 	})
@@ -126,22 +129,20 @@ equalButton.addEventListener('click', function () {
 		topDisplay.textContent !== '' &&
 		!isNaN(parseFloat(topDisplay.textContent.slice(-1)))
 	) {
-		// if it's just a single number
 		if (!operator) {
-			answer.textContent = topDisplay.textContent
+			answerDisplay.textContent = topDisplay.textContent
 			topDisplay.textContent = ''
 		} else {
 			secondNumber = parseFloat(currentNumber)
 			ans = operate(firstNumber, secondNumber, operator)
 
 			if (ans > 99999999 || ans < -99999999) {
-				// ans = ans.toExponential(5);
-				answer.textContent = ans.toExponential(5).toString()
+				answerDisplay.textContent = ans.toExponential(5).toString()
 			} else if (ans.toString().length > 10) {
 				ans = parseFloat(ans).toFixed(10)
-				answer.textContent = ans.toString()
+				answerDisplay.textContent = ans.toString()
 			} else {
-				answer.textContent = ans.toString()
+				answerDisplay.textContent = ans.toString()
 			}
 
 			topDisplay.textContent = ''
@@ -153,3 +154,21 @@ equalButton.addEventListener('click', function () {
 		}
 	}
 })
+
+// Operations
+function operate(firstNumber, secondNumber, operator) {
+	switch (operator) {
+		case '+':
+			return firstNumber + secondNumber
+			break
+		case '-':
+			return firstNumber - secondNumber
+			break
+		case '*':
+			return firstNumber * secondNumber
+			break
+		case '/':
+			return firstNumber / secondNumber
+			break
+	}
+}
