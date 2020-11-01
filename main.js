@@ -7,8 +7,8 @@ let hasSign
 
 // Target UI elements
 // Display
-let working = document.getElementById('top-display')
-let answer = document.getElementById('answer-display')
+let topDisplay = document.getElementById('top-display')
+let answerDisplay = document.getElementById('answer-display')
 // Function buttons
 let equal = document.getElementById('equal-sign')
 let clearButton = document.getElementById('clear')
@@ -25,15 +25,15 @@ let divide = document.getElementById('divide')
 let numbers = document.querySelectorAll('#calculator .number')
 numbers.forEach(function (number) {
 	number.addEventListener('click', function () {
-		working.textContent += number.innerHTML
+		topDisplay.textContent += number.innerHTML
 		currentNumber += number.innerHTML
 	})
 })
 
 // Clear
 clearButton.addEventListener('click', function () {
-	working.textContent = ''
-	answer.textContent = ''
+	topDisplay.textContent = ''
+	answerDisplay.textContent = ''
 	currentNumber = ''
 	firstNumber = undefined
 	secondNumber = undefined
@@ -42,17 +42,20 @@ clearButton.addEventListener('click', function () {
 
 // Delete
 deleteButton.addEventListener('click', function () {
-	if (working.textContent !== '') {
+	if (topDisplay.textContent !== '') {
 		currentNumber = currentNumber.slice(0, -1)
-		working.textContent = working.textContent.slice(0, -1)
+		topDisplay.textContent = topDisplay.textContent.slice(0, -1)
 	}
 })
 
 // Decimal
 decimalButton.addEventListener('click', function () {
-	if (working.textContent !== '' && !hasDecimal) {
-		working.textContent += '.'
+	if (topDisplay.textContent !== '' && !hasDecimal) {
+		topDisplay.textContent += '.'
 		currentNumber += '.'
 		hasDecimal = true
 	}
 })
+
+// Operator functionality
+let operators = document.querySelectorAll('#calculator .operator')
