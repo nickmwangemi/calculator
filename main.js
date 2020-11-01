@@ -12,7 +12,7 @@ let answer = document.getElementById('answer-display')
 // Function buttons
 let equal = document.getElementById('equal-sign')
 let clearButton = document.getElementById('clear')
-let backspace = document.getElementById('delete')
+let deleteButton = document.getElementById('delete')
 let decimal = document.getElementById('decimal')
 let sign = document.getElementById('sign')
 
@@ -39,4 +39,12 @@ clearButton.addEventListener('click', function () {
 	firstNumber = undefined
 	secondNumber = undefined
 	operator = undefined
+})
+
+// Delete
+deleteButton.addEventListener('click', function () {
+	if (working.textContent !== '') {
+		currentNumber = currentNumber.slice(0, -1)
+		working.textContent = working.textContent.slice(0, -1)
+	}
 })
