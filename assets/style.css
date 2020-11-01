@@ -63,7 +63,7 @@ h1:hover {
 }
 
 .operator,
-.function {
+.functional {
 	background: #bbbbbb;
 }
 
@@ -71,14 +71,14 @@ h1:hover {
 	background: #eee;
 }
 
-#equal {
+#equal-sign {
 	grid-row: 6/8;
 	grid-column: 4/5;
 	background: black;
 	color: white;
 }
 
-#equal:hover {
+#equal-sign:hover {
 	background: white;
 	transition: 0.2s ease-in-out;
 	color: black;
@@ -112,4 +112,18 @@ a {
 
 a:hover {
 	color: #fff;
+}
+
+#footer {
+	display: flex;
+	justify-content: center;
+	padding: 5px;
+	background-color: #45a1ff;
+	color: #fff;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+#footer > a {
+	font-size: 16px;
 }
