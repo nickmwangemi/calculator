@@ -59,3 +59,63 @@ decimalButton.addEventListener('click', function () {
 
 // Operator functionality
 let operators = document.querySelectorAll('#calculator .operator')
+operators.forEach(function (operator) {
+	let initialOperator = ''
+	operator.addEventListener('click', function () {
+		if (operator.id == 'add') {
+			initialOperator = '+'
+		} else if (operator.id == 'minus') {
+			initialOperator = '-'
+		} else if (operator.id == 'multiply') {
+			initialOperator = '*'
+		} else if (operator.id == 'divide') {
+			initialOperator = '/'
+		}
+
+		if (topDisplay.textContent === '' && operator.id === 'minus') {
+			currentNumber = '-'
+			topDisplay.textContent = '-'
+		} else if (topDisplay.textContent !== '') {
+			if (!isNaN(parseFloat(topDisplay.textContent.slice(-1)))) {
+				topDisplay.textContent += initialOperator
+
+				if (!firstNumber) {
+					firstNumber = parseFloat(currentNumber)
+					currentNumber = ''
+					operator = initialOperator
+				} else {
+					secondNumber = parseFloat(currentNumber)
+					ans = operate(firstNumber, secondNumber, operator)
+
+					if (ans > 99999999 || ans < -99999999) {
+						answer.textContent = ans.toExponential(5).toString()
+					} else if (ans.toString().length > 10) {
+						ans = parseFloat(ans).toFixed(10)
+						answer.textContent = ans.toString()
+					} else {
+						answer.textContent = ans.toString()
+					}
+					firstNumber = ans
+					operator = initialOperator
+				}
+				hasDecimal = false
+				hasSign = false
+				currentNumber = ''
+			} else {
+				if (operator.id === 'minus' && !hasSign) {
+					currentNumber += '-'
+					topDisplay.textContent += '-'
+					hasSign = true
+				} else {
+					topDisplay.textContent =
+						topDisplay.textContent.slice(0, -1) + initialOperator
+					operator = initialOperator
+				}
+			}
+		} else if (topDisplay.textContent === '' && answer.textContent !== '') {
+			firstNumber = parseFloat(answer.textContent)
+			topDisplay.textContent = answer.textContent + initialOperator
+			operator = initialOperator
+		}
+	})
+})
