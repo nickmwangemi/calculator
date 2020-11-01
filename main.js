@@ -119,3 +119,37 @@ operators.forEach(function (operator) {
 		}
 	})
 })
+
+// Equal functionality
+equalButton.addEventListener('click', function () {
+	if (
+		topDisplay.textContent !== '' &&
+		!isNaN(parseFloat(topDisplay.textContent.slice(-1)))
+	) {
+		// if it's just a single number
+		if (!operator) {
+			answer.textContent = topDisplay.textContent
+			topDisplay.textContent = ''
+		} else {
+			secondNumber = parseFloat(currentNumber)
+			ans = operate(firstNumber, secondNumber, operator)
+
+			if (ans > 99999999 || ans < -99999999) {
+				// ans = ans.toExponential(5);
+				answer.textContent = ans.toExponential(5).toString()
+			} else if (ans.toString().length > 10) {
+				ans = parseFloat(ans).toFixed(10)
+				answer.textContent = ans.toString()
+			} else {
+				answer.textContent = ans.toString()
+			}
+
+			topDisplay.textContent = ''
+			currentNumber = ''
+			firstNumber = undefined
+			operator = undefined
+			hasDecimal = false
+			hasSign = false
+		}
+	}
+})
