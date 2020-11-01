@@ -10,7 +10,7 @@ let hasSign
 let topDisplay = document.getElementById('top-display')
 let answerDisplay = document.getElementById('answer-display')
 // Function buttons
-let equal = document.getElementById('equal-sign')
+let equalButton = document.getElementById('equal-sign')
 let clearButton = document.getElementById('clear')
 let deleteButton = document.getElementById('delete')
 let decimalButton = document.getElementById('decimal')
