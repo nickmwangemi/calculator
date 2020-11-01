@@ -13,8 +13,7 @@ let answer = document.getElementById('answer-display')
 let equal = document.getElementById('equal-sign')
 let clearButton = document.getElementById('clear')
 let deleteButton = document.getElementById('delete')
-let decimal = document.getElementById('decimal')
-let sign = document.getElementById('sign')
+let decimalButton = document.getElementById('decimal')
 
 // Operators
 let add = document.getElementById('add')
@@ -46,5 +45,14 @@ deleteButton.addEventListener('click', function () {
 	if (working.textContent !== '') {
 		currentNumber = currentNumber.slice(0, -1)
 		working.textContent = working.textContent.slice(0, -1)
+	}
+})
+
+// Decimal
+decimalButton.addEventListener('click', function () {
+	if (working.textContent !== '' && !hasDecimal) {
+		working.textContent += '.'
+		currentNumber += '.'
+		hasDecimal = true
 	}
 })
