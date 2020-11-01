@@ -1,34 +1,23 @@
-let currentNumber
-// Target UI
-let topDisplay = document.getElementById('top-display')
-let answerDisplay = document.getElementById('answer-display')
+let operator
+let firstNumber
+let secondNumber
+let currentNumber = ''
+let hasDecimal
+let hasSign
 
-// Operators and numbers
-let clearButton = document.getElementById('clear')
-let deleteButton = document.getElementById('delete')
-let decimalButton = document.getElementById('decimal')
-let percentageButton = document.getElementById('percentage')
-let addButton = document.getElementById('add')
-let subtractButton = document.getElementById('subtract')
-let multiplyButton = document.getElementById('multiply')
-let divideButton = document.getElementById('divide')
-let equalButton = document.getElementById('equal')
+// Target UI elements
+// Display
+let working = document.querySelector('#top-display')
+let answer = document.querySelector('#answer-display')
+// Function buttons
+let equal = document.querySelector('#equal-sign')
+let cancel = document.querySelector('#clear')
+let backspace = document.querySelector('#delete')
+let decimal = document.querySelector('#decimal')
+let sign = document.querySelector('#sign')
 
-// Display numbers
-
-// Clear
-function clearOutput() {
-	const clearOutput = (document.getElementById('top-display').textContent = '0')
-}
-
-clearButton.addEventListener('click', () => clearOutput())
-
-// Delete
-function deleteOutput(equation) {
-	if (equation.textContent !== '') {
-		currentNumber = currentNumber.slice(0, -1)
-		equation.textContent = equation.textContent.slice(0, -1)
-	}
-}
-
-deleteButton.addEventListener('click', () => deleteOutput())
+// Operators
+let add = document.querySelector('#add')
+let minus = document.querySelector('#minus')
+let multiply = document.querySelector('#multiply')
+let divide = document.querySelector('#divide')
