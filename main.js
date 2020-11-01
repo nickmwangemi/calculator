@@ -21,3 +21,12 @@ let add = document.querySelector('#add')
 let minus = document.querySelector('#minus')
 let multiply = document.querySelector('#multiply')
 let divide = document.querySelector('#divide')
+
+// Display numbers
+let numbers = document.querySelectorAll('#calculator .number')
+numbers.forEach(function (number) {
+	number.addEventListener('click', function () {
+		working.textContent += number.innerHTML
+		currentNumber += number.innerHTML
+	})
+})
